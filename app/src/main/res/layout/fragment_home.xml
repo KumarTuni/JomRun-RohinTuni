@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="16dp"
+        tools:context=".ui.home.HomeFragment">
+        
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/searchCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="2dp">
+            
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="15dp"
+                android:paddingBottom="10dp"
+                android:textColor="#3d3d3d"
+                app:defaultQueryHint="Search Movies..."
+                app:goIcon="@drawable/ic_check_green_24dp"
+                app:iconifiedByDefault="false"
+                app:measureWithLargestChild="true"
+                app:queryBackground="@color/white"
+                app:queryHint="Search Movies..."
+                app:searchIcon="@drawable/ic_search_black_24dp" />
+        </com.google.android.material.card.MaterialCardView>
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            
+            <requestFocus />
+            
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/typeChG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                app:singleLine="true"
+                app:singleSelection="true">
+                
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/moviesChips"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Movies"
+                    app:textEndPadding="15dp"
+                    app:textStartPadding="15dp" />
+                
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/seriesChps"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Series"
+                    app:textEndPadding="15dp"
+                    app:textStartPadding="15dp" />
+                
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/episodsChips"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Episods"
+                    app:textEndPadding="15dp"
+                    app:textStartPadding="15dp" />
+            
+            </com.google.android.material.chip.ChipGroup>
+        </RelativeLayout>
+        
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            
+            <com.rohin.jomrun.ui.utils.PagedRecyclerView
+                android:id="@+id/moviesPRV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    
+    
+    </LinearLayout>
+</layout>
+

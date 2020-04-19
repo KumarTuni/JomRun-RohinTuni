@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:animateLayoutChanges="true"
+    android:clipToPadding="false"
+    android:overScrollMode="always"
+    android:paddingStart="10dp"
+    android:paddingTop="5dp"
+    android:paddingEnd="10dp"
+    android:paddingBottom="5dp">
+    
+    
+    <RelativeLayout
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:focusable="false"
+        android:orientation="vertical">
+        
+        <com.rohin.jomrun.ui.utils.LoadView
+            android:id="@+id/loadingView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:visibility="gone" />
+        
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dataRV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/loadingMoreView"
+            android:layout_below="@id/loadingView"
+            android:overScrollMode="always" />
+        
+        <com.rohin.jomrun.ui.utils.LoadView
+            android:id="@id/loadingMoreView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:visibility="gone" />
+    
+    </RelativeLayout>
+    
+    
+    <TextView
+        android:id="@+id/noResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:drawableTop="@drawable/ic_sad"
+        android:gravity="center"
+        android:text="@string/no_results"
+        android:textColor="@color/primaryColor"
+        android:textSize="20sp"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

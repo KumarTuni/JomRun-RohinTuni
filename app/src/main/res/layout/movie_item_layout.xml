@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    
+    <data>
+        
+        <import type="com.rohin.jomrun.model.data.Movie" />
+        
+        <import type="android.view.View" />
+        
+        <variable
+            name="movie"
+            type="Movie" />
+        
+        <variable
+            name="hideFavorite"
+            type="Boolean" />
+        
+        <variable
+            name="movieItemListener"
+            type="com.rohin.jomrun.ui.utils.listners.MovieItemListeners" />
+    </data>
+    
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="@color/background"
+        app:cardCornerRadius="7dp"
+        app:cardElevation="5dp">
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            
+            <ImageView
+                android:id="@+id/posterImgV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="@drawable/poster_background"
+                android:minHeight="70dp"
+                app:imageUrl="@{movie.poster}"
+                tools:src="@drawable/test" />
+            
+            
+            <TextView
+                android:id="@+id/titleTxtV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/posterImgV"
+                android:ellipsize="end"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:singleLine="true"
+                android:text="@{movie.title}"
+                android:textColor="@color/primaryTextColor"
+                android:textStyle="bold"
+                tools:text="Title Title Title Title Title Title Title Title Title Title Title Title Title Title Title Title Title Title Title Title Title Title Title Title " />
+            
+            <TextView
+                android:id="@+id/yearTxtV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/titleTxtV"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@{movie.year}"
+                android:textColor="@color/secondaryTextColor"
+                android:textSize="16sp"
+                tools:text="2018" />
+            
+            <TextView
+                android:id="@+id/typeTxtV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/titleTxtV"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:text="@{movie.type}"
+                android:textColor="@color/secondaryTextColor"
+                android:textSize="16sp"
+                tools:text="movie" />
+            
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/yearTxtV"
+                android:background="@drawable/selectable_item_white_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_alignStart="@id/yearTxtV"
+                android:onClick="@{()->movieItemListener.onToggleFavorite(movie)}"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:src="@{movie.favorite?@drawable/ic_favorite_white_24dp: @drawable/ic_favorite_border_black_24dp}"
+                android:visibility="@{hideFavorite?View.GONE:View.VISIBLE}"
+                />
+    
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/yearTxtV"
+                android:background="@drawable/selectable_item_white_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_alignEnd="@id/typeTxtV"
+                android:onClick="@{()->movieItemListener.onShare(movie)}"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_share_white_24dp"
+                />
+        
+        </RelativeLayout>
+    
+    </androidx.cardview.widget.CardView>
+</layout>

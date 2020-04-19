@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.rohin.jomrun.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_favorites"
+        android:name="com.rohin.jomrun.ui.favorites.FavoritesFragment"
+        android:label="@string/title_favorites"
+        tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.rohin.jomrun.ui.splash.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_navigation_home"
+            app:destination="@id/navigation_home"
+            app:popUpTo="@id/mobile_navigation"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+</navigation>
